@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usepopcorn-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: usepopcorn
+  template:
+    metadata:
+      labels:
+        app: usepopcorn
+    spec:
+      containers:
+        - name: usepopcorn-container
+          image: adityagahukar/usepopcorn:latest
+          ports:
+            - containerPort: 3000
